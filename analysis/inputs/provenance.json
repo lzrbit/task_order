@@ -1,0 +1,21 @@
+{
+  "source": "exp_results/random_{0,1,2}/order_{0..23}/After_{1..4}_CL_tasks_{vanilla,der,syrem,gsm}_bf_2000.txt",
+  "log_count": 1152,
+  "primary_distance_source": "Numeric trajectory.npy members of twelve archived NPZ datasets; fully specified by distance_parameters.json and rebuild_distances.py. All speed/acceleration observations verified bitwise against the feature caches.",
+  "source_legacy_distance_file": "similarity_analysis/export_single/distance_matrices_normalized.npz",
+  "source_legacy_distance_sha256": "3c434d9850e55caa5363c57d478518f8e98df2c20c1767348ea2e38bf296108d",
+  "legacy_scenario_order": [
+    "highway_merge",
+    "intersection",
+    "roundabout",
+    "urban_merge"
+  ],
+  "canonical_scenario_order": [
+    "urban_merge",
+    "highway_merge",
+    "intersection",
+    "roundabout"
+  ],
+  "legacy_note": "Original directed matrices and symmetric repairs retained only as sensitivity inputs. Legacy feature sampling, RNG state and scaling cannot be recovered. This does not affect the newly reconstructed primary distances.",
+  "training_note": "Training and its configuration are maintained separately. This repository covers evaluation outcomes and post-training analysis. Dataset row counts describe the archived feature-analysis inputs. Run directory indices label training replicates and do not assert paired random seeds."
+}

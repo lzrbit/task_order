@@ -1,0 +1,13 @@
+file,trajectory_rows,trajectory_shape,dtype
+train_EP.npz,12253,12253x26x9x8,float64
+train_EP0.npz,9134,9134x26x9x8,float64
+train_EP1.npz,10048,10048x26x9x8,float64
+train_FT.npz,66252,66252x26x9x8,float64
+train_GL.npz,81633,81633x26x9x8,float64
+train_LN.npz,3393,3393x26x9x8,float64
+train_MA.npz,33454,33454x26x9x8,float64
+train_MT.npz,5378,5378x26x9x8,float64
+train_OF.npz,7897,7897x26x9x8,float64
+train_SR.npz,13745,13745x26x9x8,float64
+train_ZS0.npz,35511,35511x26x9x8,float64
+train_ZS2.npz,15394,15394x26x9x8,float64

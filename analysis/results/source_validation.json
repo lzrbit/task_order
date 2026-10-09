@@ -1,0 +1,85 @@
+{
+  "invalid_logs": [],
+  "checks": [
+    {
+      "metric": "FDE-CT",
+      "seed": 0,
+      "max_abs_difference": 4.964652464689578e-07
+    },
+    {
+      "metric": "FDE-CT",
+      "seed": 1,
+      "max_abs_difference": 4.913071833811955e-07
+    },
+    {
+      "metric": "FDE-CT",
+      "seed": 2,
+      "max_abs_difference": 4.959610424570826e-07
+    },
+    {
+      "metric": "FDE-CT",
+      "seed": "average",
+      "max_abs_difference": 6.921397617265512e-07
+    },
+    {
+      "metric": "FDE-BWT",
+      "seed": 0,
+      "max_abs_difference": 4.992397144576444e-07
+    },
+    {
+      "metric": "FDE-BWT",
+      "seed": 1,
+      "max_abs_difference": 4.901197127155608e-07
+    },
+    {
+      "metric": "FDE-BWT",
+      "seed": 2,
+      "max_abs_difference": 4.9541677393794e-07
+    },
+    {
+      "metric": "FDE-BWT",
+      "seed": "average",
+      "max_abs_difference": 7.606456264852568e-07
+    },
+    {
+      "metric": "MR-CT",
+      "seed": 0,
+      "max_abs_difference": 4.910025825921593e-07
+    },
+    {
+      "metric": "MR-CT",
+      "seed": 1,
+      "max_abs_difference": 4.977570426945022e-07
+    },
+    {
+      "metric": "MR-CT",
+      "seed": 2,
+      "max_abs_difference": 4.985788741862507e-07
+    },
+    {
+      "metric": "MR-CT",
+      "seed": "average",
+      "max_abs_difference": 6.760563842078682e-07
+    },
+    {
+      "metric": "MR-BWT",
+      "seed": 0,
+      "max_abs_difference": 4.929736405756557e-07
+    },
+    {
+      "metric": "MR-BWT",
+      "seed": 1,
+      "max_abs_difference": 4.970919196267687e-07
+    },
+    {
+      "metric": "MR-BWT",
+      "seed": 2,
+      "max_abs_difference": 4.963617925568542e-07
+    },
+    {
+      "metric": "MR-BWT",
+      "seed": "average",
+      "max_abs_difference": 6.488244626012829e-07
+    }
+  ]
+}

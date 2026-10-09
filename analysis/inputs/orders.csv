@@ -1,0 +1,25 @@
+Order,Sequence,scenario_sequence,first_task
+0,A → B → C → D,urban_merge|highway_merge|intersection|roundabout,urban_merge
+1,A → B → D → C,urban_merge|highway_merge|roundabout|intersection,urban_merge
+2,A → C → B → D,urban_merge|intersection|highway_merge|roundabout,urban_merge
+3,A → C → D → B,urban_merge|intersection|roundabout|highway_merge,urban_merge
+4,A → D → B → C,urban_merge|roundabout|highway_merge|intersection,urban_merge
+5,A → D → C → B,urban_merge|roundabout|intersection|highway_merge,urban_merge
+6,B → A → C → D,highway_merge|urban_merge|intersection|roundabout,highway_merge
+7,B → A → D → C,highway_merge|urban_merge|roundabout|intersection,highway_merge
+8,B → C → A → D,highway_merge|intersection|urban_merge|roundabout,highway_merge
+9,B → C → D → A,highway_merge|intersection|roundabout|urban_merge,highway_merge
+10,B → D → A → C,highway_merge|roundabout|urban_merge|intersection,highway_merge
+11,B → D → C → A,highway_merge|roundabout|intersection|urban_merge,highway_merge
+12,C → A → B → D,intersection|urban_merge|highway_merge|roundabout,intersection
+13,C → A → D → B,intersection|urban_merge|roundabout|highway_merge,intersection
+14,C → B → A → D,intersection|highway_merge|urban_merge|roundabout,intersection
+15,C → B → D → A,intersection|highway_merge|roundabout|urban_merge,intersection
+16,C → D → A → B,intersection|roundabout|urban_merge|highway_merge,intersection
+17,C → D → B → A,intersection|roundabout|highway_merge|urban_merge,intersection
+18,D → A → B → C,roundabout|urban_merge|highway_merge|intersection,roundabout
+19,D → A → C → B,roundabout|urban_merge|intersection|highway_merge,roundabout
+20,D → B → A → C,roundabout|highway_merge|urban_merge|intersection,roundabout
+21,D → B → C → A,roundabout|highway_merge|intersection|urban_merge,roundabout
+22,D → C → A → B,roundabout|intersection|urban_merge|highway_merge,roundabout
+23,D → C → B → A,roundabout|intersection|highway_merge|urban_merge,roundabout

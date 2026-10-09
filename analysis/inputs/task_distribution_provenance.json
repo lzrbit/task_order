@@ -1,0 +1,182 @@
+{
+  "purpose": "Visualise task feature distributions; not an additional distance estimator.",
+  "source": "Previously bitwise-verified numeric trajectory feature caches.",
+  "units": {
+    "abs_speed": "m/s",
+    "acceleration": "m/s^2"
+  },
+  "task_groups": {
+    "urban_merge": [
+      "MT"
+    ],
+    "highway_merge": [
+      "ZS0",
+      "ZS2"
+    ],
+    "intersection": [
+      "MA",
+      "GL",
+      "EP0",
+      "EP1"
+    ],
+    "roundabout": [
+      "EP",
+      "SR",
+      "FT",
+      "OF",
+      "LN"
+    ]
+  },
+  "speed_definition": "Magnitude of target-agent velocity at all nine history steps.",
+  "acceleration_definition": "Adjacent speed differences divided by 0.1 seconds, retained inclusively within [-5, 5] m/s^2.",
+  "observation_weighting": "Every retained scalar observation has equal weight within its task; each task density integrates to one.",
+  "dependence": "Repeated time steps and potentially overlapping trajectory windows are not independent observations. No confidence intervals or significance tests are inferred from observation counts.",
+  "binning": {
+    "bins_per_feature": 100,
+    "speed_range": [
+      0.0,
+      25.505384568753325
+    ],
+    "speed_edges": "Identical to the shared speed histogram edges in distance_reconstruction.json.",
+    "acceleration_range": [
+      -5.0,
+      5.0
+    ],
+    "boundary_convention": "Left-closed/right-open, with final bin including its right endpoint.",
+    "smoothing": "None; raw counts divided by task observation count and bin width."
+  },
+  "summary_quantiles": "Exact sample quantiles computed by numpy.quantile, default linear interpolation.",
+  "inputs": {
+    "distance_parameters_sha256": "e14edad1de12c7c3ff9f639cff5729041d89daac356ee99e833045053c2d21c4",
+    "trajectory_source_ledger_sha256": "d42251ebf83e10bd8c6b9bd329ab21a1366fc9c62b3195b89fc7a6a10cbd6cb9",
+    "raw_feature_verification_sha256": "b3c6e853847d24bf15bf0a317bd8caba1e8d601a2bd981eb0794b25bb42e6f9f"
+  },
+  "compact_outputs": {
+    "task_distribution_histograms.csv": "c5159d8e806f4174b2bc754921d6923853ce2a986b8400b80b9939168d2e60c8",
+    "task_distribution_summary.csv": "2c824e2fe51b79cef09bb6461cdd7bc793f5b7c1a8435f7aa95eede405a57695"
+  },
+  "all_12_cache_hashes_match": true,
+  "all_24_feature_hashes_match_prior_raw_trajectory_reconstruction": true,
+  "source_checks": [
+    {
+      "scenario": "urban_merge",
+      "dataset": "MT",
+      "cache_path": "outputs/train_MT_combined_features.npz",
+      "cache_sha256": "cdddac56ebd03680a65a663ff899c3a9d905215a21cb06df5b84732ac5913a8f",
+      "expected_cache_sha256": "cdddac56ebd03680a65a663ff899c3a9d905215a21cb06df5b84732ac5913a8f",
+      "hash_matches": true,
+      "abs_speed_observations": 48402,
+      "acceleration_observations": 43024
+    },
+    {
+      "scenario": "highway_merge",
+      "dataset": "ZS0",
+      "cache_path": "outputs/train_ZS0_combined_features.npz",
+      "cache_sha256": "fabeab9f7f7db0220b37d91a4909907e4d522de9a537a1a78487e592a1ab96cf",
+      "expected_cache_sha256": "fabeab9f7f7db0220b37d91a4909907e4d522de9a537a1a78487e592a1ab96cf",
+      "hash_matches": true,
+      "abs_speed_observations": 319599,
+      "acceleration_observations": 284088
+    },
+    {
+      "scenario": "highway_merge",
+      "dataset": "ZS2",
+      "cache_path": "outputs/train_ZS2_combined_features.npz",
+      "cache_sha256": "948f9bbe4b282eecf8dd926feac1ae336938723b4abedc483014bf94cc9aa5c9",
+      "expected_cache_sha256": "948f9bbe4b282eecf8dd926feac1ae336938723b4abedc483014bf94cc9aa5c9",
+      "hash_matches": true,
+      "abs_speed_observations": 138546,
+      "acceleration_observations": 123152
+    },
+    {
+      "scenario": "intersection",
+      "dataset": "MA",
+      "cache_path": "outputs/train_MA_combined_features.npz",
+      "cache_sha256": "6d6cb0c91fb35ec1de3adb249d1237bcbab36d1406690f746f34b34121745eaa",
+      "expected_cache_sha256": "6d6cb0c91fb35ec1de3adb249d1237bcbab36d1406690f746f34b34121745eaa",
+      "hash_matches": true,
+      "abs_speed_observations": 301086,
+      "acceleration_observations": 267632
+    },
+    {
+      "scenario": "intersection",
+      "dataset": "GL",
+      "cache_path": "outputs/train_GL_combined_features.npz",
+      "cache_sha256": "b45f05708af914c5c88788dfed058089ce34619ffb4450bbd5f49eefc30adc11",
+      "expected_cache_sha256": "b45f05708af914c5c88788dfed058089ce34619ffb4450bbd5f49eefc30adc11",
+      "hash_matches": true,
+      "abs_speed_observations": 734697,
+      "acceleration_observations": 653051
+    },
+    {
+      "scenario": "intersection",
+      "dataset": "EP0",
+      "cache_path": "outputs/train_EP0_combined_features.npz",
+      "cache_sha256": "2254a45112280807c512f1fd2eeca52fbfa25542bfeb0ab2e12edeaf34b2c6b1",
+      "expected_cache_sha256": "2254a45112280807c512f1fd2eeca52fbfa25542bfeb0ab2e12edeaf34b2c6b1",
+      "hash_matches": true,
+      "abs_speed_observations": 82206,
+      "acceleration_observations": 73070
+    },
+    {
+      "scenario": "intersection",
+      "dataset": "EP1",
+      "cache_path": "outputs/train_EP1_combined_features.npz",
+      "cache_sha256": "b290ee7ff8f9c79aa7c174dae52ed42d76ceefebb98a67f9ba62404f7039516c",
+      "expected_cache_sha256": "b290ee7ff8f9c79aa7c174dae52ed42d76ceefebb98a67f9ba62404f7039516c",
+      "hash_matches": true,
+      "abs_speed_observations": 90432,
+      "acceleration_observations": 80378
+    },
+    {
+      "scenario": "roundabout",
+      "dataset": "EP",
+      "cache_path": "outputs/train_EP_combined_features.npz",
+      "cache_sha256": "3abbf9ac0796e3d8cc6b3addbed917b7d208729f5ec80f9d7c0f8683c956e832",
+      "expected_cache_sha256": "3abbf9ac0796e3d8cc6b3addbed917b7d208729f5ec80f9d7c0f8683c956e832",
+      "hash_matches": true,
+      "abs_speed_observations": 110277,
+      "acceleration_observations": 98023
+    },
+    {
+      "scenario": "roundabout",
+      "dataset": "SR",
+      "cache_path": "outputs/train_SR_combined_features.npz",
+      "cache_sha256": "61eb6e729b8ace45ea1d230296d4b77a352eb55c3895f03b66e7c554fc4782d8",
+      "expected_cache_sha256": "61eb6e729b8ace45ea1d230296d4b77a352eb55c3895f03b66e7c554fc4782d8",
+      "hash_matches": true,
+      "abs_speed_observations": 123705,
+      "acceleration_observations": 109955
+    },
+    {
+      "scenario": "roundabout",
+      "dataset": "FT",
+      "cache_path": "outputs/train_FT_combined_features.npz",
+      "cache_sha256": "2cb59b67f9677e203c9da311ac0f7dc572bb02c42af8509054e0ebf986bd833e",
+      "expected_cache_sha256": "2cb59b67f9677e203c9da311ac0f7dc572bb02c42af8509054e0ebf986bd833e",
+      "hash_matches": true,
+      "abs_speed_observations": 596268,
+      "acceleration_observations": 530015
+    },
+    {
+      "scenario": "roundabout",
+      "dataset": "OF",
+      "cache_path": "outputs/train_OF_combined_features.npz",
+      "cache_sha256": "66c73fe3b0f1cf5fbbe5cc5719936687d53e75bdd3aa11fa16d2390c5a641717",
+      "expected_cache_sha256": "66c73fe3b0f1cf5fbbe5cc5719936687d53e75bdd3aa11fa16d2390c5a641717",
+      "hash_matches": true,
+      "abs_speed_observations": 71073,
+      "acceleration_observations": 63173
+    },
+    {
+      "scenario": "roundabout",
+      "dataset": "LN",
+      "cache_path": "outputs/train_LN_combined_features.npz",
+      "cache_sha256": "504b5eca82c140f6fcd9dee930cd914dd55af1fa361013f1f1ddf3d09f6ce5cd",
+      "expected_cache_sha256": "504b5eca82c140f6fcd9dee930cd914dd55af1fa361013f1f1ddf3d09f6ce5cd",
+      "hash_matches": true,
+      "abs_speed_observations": 30537,
+      "acceleration_observations": 27144
+    }
+  ]
+}

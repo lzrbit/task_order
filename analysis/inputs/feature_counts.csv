@@ -1,0 +1,5 @@
+scenario,trajectory_rows,abs_speed_observations,acceleration_observations
+urban_merge,5378,48402,43024
+highway_merge,50905,458145,407240
+intersection,134269,1208421,1074131
+roundabout,103540,931860,828310

@@ -1,0 +1,24 @@
+\begin{table}[!t]
+\centering
+\caption{Uniform and contrast-weighted scores. Bold marks the smallest value in each row.}
+\label{tab:weighted_metrics}
+\setlength{\tabcolsep}{3.5pt}
+\footnotesize
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}llrrrr@{}}
+\toprule
+Metric & Weight & Vanilla & DER & SyReM & GSM \\
+\midrule
+FDE$_{\rm CT}$ & Uniform & 2.94 & 2.42 & \textbf{2.33} & 2.94 \\
+ & $D$-weighted & 3.76 & 3.06 & \textbf{3.01} & 3.76 \\
+\midrule
+MR$_{\rm CT}$ & Uniform & 18.10 & 17.30 & \textbf{16.04} & 19.58 \\
+ & $D$-weighted & 21.87 & 20.12 & \textbf{19.34} & 22.98 \\
+\midrule
+FDE$_{\rm BWT}$ & Uniform & -3.30 & -1.88 & -2.77 & \textbf{-3.33} \\
+ & $D$-weighted & -1.46 & -0.43 & -1.23 & \textbf{-1.55} \\
+\midrule
+MR$_{\rm BWT}$ & Uniform & -3.89 & -2.10 & \textbf{-13.79} & -8.17 \\
+ & $D$-weighted & 5.17 & 6.01 & \textbf{-6.04} & 0.74 \\
+\bottomrule
+\end{tabular*}
+\end{table}

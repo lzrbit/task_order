@@ -1,0 +1,19 @@
+{
+  "inputs/dataset_sizes.csv": "9cdd81a102214e06a0d313c610eec2c0ba6ceb8dfdc90294164b39df37542b09",
+  "inputs/distance_matrices.csv": "9b2f965fbb6647bba7227d456fac986b687444c1b52f57acd3e5df81a0436b06",
+  "inputs/distance_parameters.json": "e14edad1de12c7c3ff9f639cff5729041d89daac356ee99e833045053c2d21c4",
+  "inputs/distance_reconstruction.json": "11026d8eec4fcaed9d667b43e5fbec88e387921d051aa0822502574a6afb71f3",
+  "inputs/feature_counts.csv": "f252f53b3b4bfeb68759a3744327455ddf694d5e54d24e9bf7e99a52d358c6d7",
+  "inputs/legacy_distance_matrices.csv": "17a06d5a428b8d3f5508dc28f2df15cf9ea597ad1eac868adb19f6cd7335fb64",
+  "inputs/mmd_sample_indices.csv": "770543397c83ccf20c412ced4964553960e14f3483115365cbe6824fe4254a57",
+  "inputs/orders.csv": "f1ea3203c19fd11c38901f16879cf411570ce8c988461184263e498d65c74dae",
+  "inputs/performance_per_seed.csv": "c89b8c6de474ad0171c47a60370c88cef741f61c9123b8fc1fb25e987be79457",
+  "inputs/provenance.json": "d5ca58f6ee582ef810aa9f5a336079f87661da7817a6986d2a12f4a62a68c1ab",
+  "inputs/raw_feature_verification.csv": "b3c6e853847d24bf15bf0a317bd8caba1e8d601a2bd981eb0794b25bb42e6f9f",
+  "inputs/raw_log_sha256.csv": "c4041e00d308a5f701b2c9e897231f10a6ca5d1c7456c7758897330bcfb1e44e",
+  "inputs/stage_task_results.csv": "b323c48f14b3b2a7c771c1131a198037ae32b7057e0f967232a08edad24393bc",
+  "inputs/task_distribution_histograms.csv": "c5159d8e806f4174b2bc754921d6923853ce2a986b8400b80b9939168d2e60c8",
+  "inputs/task_distribution_provenance.json": "85963b3e26ebf23165908136d3773781cfac0e328465dbc7d8c21939afd72250",
+  "inputs/task_distribution_summary.csv": "2c824e2fe51b79cef09bb6461cdd7bc793f5b7c1a8435f7aa95eede405a57695",
+  "inputs/trajectory_source_sha256.csv": "d42251ebf83e10bd8c6b9bd329ab21a1366fc9c62b3195b89fc7a6a10cbd6cb9"
+}

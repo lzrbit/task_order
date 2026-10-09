@@ -1,0 +1,31 @@
+{
+  "trajectories": 288,
+  "stages_per_trajectory": 4,
+  "stage_task_rows": 4608,
+  "finite_values": true,
+  "symmetric_distance": true,
+  "distinct_D_values": 6,
+  "D_values": [
+    -0.9428462095651385,
+    -0.2399300263285964,
+    -0.18742314514261937,
+    0.18742314514261937,
+    0.2399300263285964,
+    0.9428462095651385
+  ],
+  "D_counts": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "D_formula": "(Step3-Step1)/2",
+  "sample_SD_ddof": 1,
+  "initial_stage_nonidentical_blocks": 40,
+  "initial_stage_total_blocks": 48,
+  "first_task_adjustment": "Pearson correlation of residualized global average ranks after projecting each ranked variable onto four first-task indicator columns.",
+  "primary_distance_units": "W1 speed in m/s; W1 acceleration in m/s^2; KL, JS and standardized-speed MMD dimensionless. See inputs/distance_parameters.json.",
+  "legacy_distance_sensitivity": "Preserved original directed and symmetric legacy matrices; primary full-array W1 ranks agree with symmetric legacy W1."
+}

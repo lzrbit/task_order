@@ -1,0 +1,25 @@
+Order,Sequence,scenario_sequence,first_task,D,Step1,Step2,Step3
+0,A → B → C → D,urban_merge|highway_merge|intersection|roundabout,urban_merge,-0.9428462095651385,3.248616664175771,1.7438926318973484,1.362924245045494
+1,A → B → D → C,urban_merge|highway_merge|roundabout|intersection,urban_merge,-0.9428462095651385,3.248616664175771,2.154952469870049,1.362924245045494
+2,A → C → B → D,urban_merge|intersection|highway_merge|roundabout,urban_merge,-0.2399300263285964,2.6348125225272416,1.7438926318973484,2.154952469870049
+3,A → C → D → B,urban_merge|intersection|roundabout|highway_merge,urban_merge,-0.2399300263285964,2.6348125225272416,1.362924245045494,2.154952469870049
+4,A → D → B → C,urban_merge|roundabout|highway_merge|intersection,urban_merge,-0.18742314514261937,2.118738922182587,2.154952469870049,1.7438926318973484
+5,A → D → C → B,urban_merge|roundabout|intersection|highway_merge,urban_merge,-0.18742314514261937,2.118738922182587,1.362924245045494,1.7438926318973484
+6,B → A → C → D,highway_merge|urban_merge|intersection|roundabout,highway_merge,-0.9428462095651385,3.248616664175771,2.6348125225272416,1.362924245045494
+7,B → A → D → C,highway_merge|urban_merge|roundabout|intersection,highway_merge,-0.9428462095651385,3.248616664175771,2.118738922182587,1.362924245045494
+8,B → C → A → D,highway_merge|intersection|urban_merge|roundabout,highway_merge,0.18742314514261937,1.7438926318973484,2.6348125225272416,2.118738922182587
+9,B → C → D → A,highway_merge|intersection|roundabout|urban_merge,highway_merge,0.18742314514261937,1.7438926318973484,1.362924245045494,2.118738922182587
+10,B → D → A → C,highway_merge|roundabout|urban_merge|intersection,highway_merge,0.2399300263285964,2.154952469870049,2.118738922182587,2.6348125225272416
+11,B → D → C → A,highway_merge|roundabout|intersection|urban_merge,highway_merge,0.2399300263285964,2.154952469870049,1.362924245045494,2.6348125225272416
+12,C → A → B → D,intersection|urban_merge|highway_merge|roundabout,intersection,-0.2399300263285964,2.6348125225272416,3.248616664175771,2.154952469870049
+13,C → A → D → B,intersection|urban_merge|roundabout|highway_merge,intersection,-0.2399300263285964,2.6348125225272416,2.118738922182587,2.154952469870049
+14,C → B → A → D,intersection|highway_merge|urban_merge|roundabout,intersection,0.18742314514261937,1.7438926318973484,3.248616664175771,2.118738922182587
+15,C → B → D → A,intersection|highway_merge|roundabout|urban_merge,intersection,0.18742314514261937,1.7438926318973484,2.154952469870049,2.118738922182587
+16,C → D → A → B,intersection|roundabout|urban_merge|highway_merge,intersection,0.9428462095651385,1.362924245045494,2.118738922182587,3.248616664175771
+17,C → D → B → A,intersection|roundabout|highway_merge|urban_merge,intersection,0.9428462095651385,1.362924245045494,2.154952469870049,3.248616664175771
+18,D → A → B → C,roundabout|urban_merge|highway_merge|intersection,roundabout,-0.18742314514261937,2.118738922182587,3.248616664175771,1.7438926318973484
+19,D → A → C → B,roundabout|urban_merge|intersection|highway_merge,roundabout,-0.18742314514261937,2.118738922182587,2.6348125225272416,1.7438926318973484
+20,D → B → A → C,roundabout|highway_merge|urban_merge|intersection,roundabout,0.2399300263285964,2.154952469870049,3.248616664175771,2.6348125225272416
+21,D → B → C → A,roundabout|highway_merge|intersection|urban_merge,roundabout,0.2399300263285964,2.154952469870049,1.7438926318973484,2.6348125225272416
+22,D → C → A → B,roundabout|intersection|urban_merge|highway_merge,roundabout,0.9428462095651385,1.362924245045494,2.6348125225272416,3.248616664175771
+23,D → C → B → A,roundabout|intersection|highway_merge|urban_merge,roundabout,0.9428462095651385,1.362924245045494,1.7438926318973484,3.248616664175771
