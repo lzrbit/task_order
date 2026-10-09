@@ -1,37 +1,35 @@
-\begin{table*}[!t]
+\begin{table}[!t]
 \centering
-\caption{Spearman correlations for five candidate transition descriptors. Bold: $|\rho|\geq0.7$.}
+\caption{Spearman correlations between candidate transition-direction descriptors and order-level performance. W1: Wasserstein-1. Bold: $|\rho|\geq0.7$.}
 \label{tab:correlation_comparison}
-\setlength{\tabcolsep}{7pt}
-\renewcommand{\arraystretch}{1.04}
+\setlength{\tabcolsep}{2.6pt}
+\renewcommand{\arraystretch}{1.02}
 \footnotesize
-\begin{tabular}{llccccc}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}llrrrrr@{}}
 \toprule
-Algorithm & Metric & W1 speed & KL speed & JS speed & MMD speed & W1 accel. \\
+Algorithm & Metric & \shortstack{W1\\speed} & \shortstack{KL\\speed} & \shortstack{JS\\speed} & \shortstack{MMD\\speed} & \shortstack{W1\\accel.} \\
 \midrule
-Vanilla & FDE$_{\rm CT}$ & \textbf{-0.75} & -0.23 & -0.20 & \textbf{-0.75} & +0.69 \\
- & MR$_{\rm CT}$ & \textbf{-0.75} & -0.09 & -0.12 & \textbf{-0.75} & +0.69 \\
- & FDE$_{\rm BWT}$ & +0.66 & +0.13 & +0.10 & +0.66 & -0.55 \\
- & MR$_{\rm BWT}$ & \textbf{+0.81} & +0.26 & +0.32 & \textbf{+0.81} & -0.46 \\
+Vanilla & FDE-CT & {\boldmath$-0.75$} & $-0.23$ & $-0.20$ & {\boldmath$-0.75$} & $+0.69$ \\
+ & MR-CT & {\boldmath$-0.75$} & $-0.09$ & $-0.12$ & {\boldmath$-0.75$} & $+0.69$ \\
+ & FDE-BWT & $+0.66$ & $+0.13$ & $+0.10$ & $+0.66$ & $-0.55$ \\
+ & MR-BWT & {\boldmath$+0.81$} & $+0.26$ & $+0.32$ & {\boldmath$+0.81$} & $-0.46$ \\
 \midrule
-DER & FDE$_{\rm CT}$ & -0.57 & -0.29 & -0.36 & -0.57 & +0.46 \\
- & MR$_{\rm CT}$ & -0.54 & -0.22 & -0.27 & -0.54 & +0.48 \\
- & FDE$_{\rm BWT}$ & +0.67 & +0.10 & +0.12 & +0.67 & -0.52 \\
- & MR$_{\rm BWT}$ & \textbf{+0.74} & +0.28 & +0.32 & \textbf{+0.74} & -0.43 \\
+DER & FDE-CT & $-0.57$ & $-0.29$ & $-0.36$ & $-0.57$ & $+0.46$ \\
+ & MR-CT & $-0.54$ & $-0.22$ & $-0.27$ & $-0.54$ & $+0.48$ \\
+ & FDE-BWT & $+0.67$ & $+0.10$ & $+0.12$ & $+0.67$ & $-0.52$ \\
+ & MR-BWT & {\boldmath$+0.74$} & $+0.28$ & $+0.32$ & {\boldmath$+0.74$} & $-0.43$ \\
 \midrule
-SyReM & FDE$_{\rm CT}$ & -0.67 & -0.29 & -0.26 & -0.67 & \textbf{+0.74} \\
- & MR$_{\rm CT}$ & \textbf{-0.72} & -0.22 & -0.23 & \textbf{-0.72} & \textbf{+0.76} \\
- & FDE$_{\rm BWT}$ & +0.55 & +0.31 & +0.36 & +0.55 & -0.35 \\
- & MR$_{\rm BWT}$ & \textbf{+0.72} & +0.35 & +0.43 & \textbf{+0.72} & -0.42 \\
+SyReM & FDE-CT & $-0.67$ & $-0.29$ & $-0.26$ & $-0.67$ & {\boldmath$+0.74$} \\
+ & MR-CT & {\boldmath$-0.72$} & $-0.22$ & $-0.23$ & {\boldmath$-0.72$} & {\boldmath$+0.76$} \\
+ & FDE-BWT & $+0.55$ & $+0.31$ & $+0.36$ & $+0.55$ & $-0.35$ \\
+ & MR-BWT & {\boldmath$+0.72$} & $+0.35$ & $+0.43$ & {\boldmath$+0.72$} & $-0.42$ \\
 \midrule
-GSM & FDE$_{\rm CT}$ & -0.57 & -0.30 & -0.29 & -0.57 & +0.66 \\
- & MR$_{\rm CT}$ & -0.53 & -0.23 & -0.23 & -0.53 & +0.69 \\
- & FDE$_{\rm BWT}$ & +0.55 & +0.32 & +0.30 & +0.55 & -0.37 \\
- & MR$_{\rm BWT}$ & +0.69 & +0.40 & +0.44 & +0.69 & -0.43 \\
+GSM & FDE-CT & $-0.57$ & $-0.30$ & $-0.29$ & $-0.57$ & $+0.66$ \\
+ & MR-CT & $-0.53$ & $-0.23$ & $-0.23$ & $-0.53$ & $+0.69$ \\
+ & FDE-BWT & $+0.55$ & $+0.32$ & $+0.30$ & $+0.55$ & $-0.37$ \\
+ & MR-BWT & $+0.69$ & $+0.40$ & $+0.44$ & $+0.69$ & $-0.43$ \\
 \midrule
-\multicolumn{2}{l}{Mean $|\rho|$, CT} & 0.64 & 0.23 & 0.24 & 0.64 & 0.65 \\
-\multicolumn{2}{l}{Mean $|\rho|$, BWT} & 0.67 & 0.27 & 0.30 & 0.67 & 0.44 \\
-\multicolumn{2}{l}{Mean $|\rho|$, all} & 0.66 & 0.25 & 0.27 & 0.66 & 0.54 \\
+\multicolumn{2}{l}{Mean $|\rho|$} & $0.66$ & $0.25$ & $0.27$ & $0.66$ & $0.54$ \\
 \bottomrule
-\end{tabular}
-\end{table*}
+\end{tabular*}
+\end{table}

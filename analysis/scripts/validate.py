@@ -73,10 +73,42 @@ def check_results():
         require(np.isclose(within, measured.loc['within_cell_training', 'SS'], rtol=1e-12),
                 'Within-cell variation mismatch')
         require(np.isclose(measured.SS.sum(), total, rtol=1e-12), 'SS components do not sum to total')
+    # Extended decomposition: the starting-task and within-start parts must recombine to the order term,
+    # and every row of fractions must sum to one.
+    extended = pd.read_csv(RESULTS / 'extended_decomposition.csv')
+    require(np.allclose(extended.start + extended.order_within_start, extended.order, atol=1e-12),
+            'Starting-task split does not recombine to the order term')
+    require(np.allclose(extended.order + extended.algorithm + extended.order_x_algorithm
+                        + extended.within_cell_training, 1, atol=1e-12),
+            'Extended decomposition fractions do not sum to one')
+    for metric in ['FDE-CT', 'MR-CT', 'FDE-BWT', 'MR-BWT']:
+        full = ss[ss.metric == metric].set_index('component')
+        row = extended[(extended.metric == metric) & (extended.subset == 'all_orders')].iloc[0]
+        require(np.isclose(row.order, full.loc['order', 'fraction_total_SS'], atol=1e-12),
+                'Extended decomposition disagrees with sum_of_squares.csv')
+    # Position-of-A associations: the marginal descriptor correlation must match correlations.csv,
+    # and the sign of D must coincide with task A occupying positions 1-2.
+    position = pd.read_csv(RESULTS / 'position_correlations.csv')
+    sequences = orders.set_index('Order').scenario_sequence
+    pos_a = np.array([s.split('|').index('urban_merge') + 1 for s in sequences.reindex(range(24))])
+    require(all((per_order.D.reindex(range(24)).values < 0) == (pos_a <= 2)),
+            'sign(D) no longer coincides with task A in positions 1-2')
+    for r in correlations.itertuples():
+        match = position[(position.metric == r.metric) & (position.algorithm == r.algorithm)]
+        require(len(match) == 1 and abs(float(match.rho_D.iloc[0]) - r.rho_all) < 1e-12,
+                'Position-adjusted table disagrees with correlations.csv')
+    # Bootstrap summary: leader probabilities form a distribution over algorithms for every metric.
+    boot = pd.read_csv(RESULTS / 'bootstrap_summary.csv')
+    for metric, group in boot.groupby('metric'):
+        require(np.isclose(group.p_best_uniform.sum(), 1, atol=1e-9), f'Uniform leader probabilities do not sum to one: {metric}')
+        require((group.winner_count_q025 <= group.winner_count).all() and (group.winner_count <= group.winner_count_q975).all(),
+                f'Winner count outside its bootstrap interval: {metric}')
     return {'stage_task_rows': len(raw), 'training_runs': len(raw.groupby(['seed', 'Order', 'algorithm'])),
             'main_metric_rows_checked': len(errors), 'max_CT_BWT_difference': max(errors),
             'correlations_checked': len(correlation_errors), 'max_correlation_difference': max(correlation_errors),
-            'distinct_descriptor_levels': 6, 'sum_of_squares_components': list(ss.component.unique())}
+            'distinct_descriptor_levels': 6, 'sum_of_squares_components': list(ss.component.unique()),
+            'extended_decomposition_rows': len(extended), 'position_correlation_rows': len(position),
+            'bootstrap_metrics': int(boot.metric.nunique())}
 
 
 def main():

@@ -45,7 +45,7 @@ python run.py --check-only
 | `run.py` | Entry point for numerical reproduction, validation, and optional figures |
 | `analysis/inputs/` | Compact logged outcomes, task orders, distances, feature summaries, and provenance |
 | `analysis/input_manifest.json` | SHA-256 hashes of the released compact inputs |
-| `analysis/results/` | Per-order summaries, correlations, weighted scores, diagnostics, and generated tables |
+| `analysis/results/` | Per-order summaries, correlations, weighted scores, diagnostics, extended sum-of-squares decomposition, position-of-A associations, replicate-bootstrap leader probabilities, and generated tables |
 | `analysis/scripts/recompute.py` | Rebuild all reported numerical summaries and tables |
 | `analysis/scripts/validate.py` | Independent metric, correlation, and variation checks |
 | `analysis/scripts/figures.py` | Task-distance matrices, descriptor/performance scatter plots, and path comparisons |
@@ -115,3 +115,7 @@ The repository itself may be cited as:
 ```
 
 A software licence has not yet been specified by the authors.
+
+## October 2026 update
+
+`recompute.py` now also writes `extended_decomposition.csv` (starting-task split of the order term, with and without A-first orders, and for the warm-start current-task error), `position_correlations.csv` and `position_of_A_means.csv` (associations and means by the presentation position of task A), `bootstrap_summary.csv` and `per_order_leaders.csv` (replicate-level bootstrap with 5,000 draws and seed 0; separable per-order leaders), and `table_decomposition.tex`. `validate.py` checks these outputs, `teaser.py` draws the replicate-aware Figure 1, and `inputs/exploratory_scan_correlations.csv` records the 300-candidate exploratory descriptor scan. The 17 frozen inputs and the main CT/BWT values are unchanged.

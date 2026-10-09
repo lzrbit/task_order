@@ -1,17 +1,20 @@
 \begin{table}[!t]
 \centering
-\caption{Mean descriptor correlations across algorithms, with and without adjustment for the starting task.}
+\caption{Mean Spearman associations across algorithms. $\rho(D)$: descriptor and order means. Excl.\ A-first: 18 orders. Start-adj.: rank residuals after removing starting-task means. $\rho(p_A)$: position of task A. $p_A$-adj.: rank residuals after removing position-of-A means.}
 \label{tab:starting_correlations}
-\setlength{\tabcolsep}{5pt}
+\setlength{\tabcolsep}{2.5pt}
 \footnotesize
-\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrrr@{}}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrrrrr@{}}
 \toprule
-Metric & All orders & Excluding A-first & Adjusted \\
+Metric & $\rho(D)$ & Excl.\ A-first & Start-adj. & $\rho(p_A)$ & $p_A$-adj. \\
 \midrule
-FDE$_{\rm CT}$ & -0.64 & -0.47 & -0.48 \\
-MR$_{\rm CT}$ & -0.63 & -0.43 & -0.49 \\
-FDE$_{\rm BWT}$ & +0.61 & +0.40 & +0.29 \\
-MR$_{\rm BWT}$ & +0.74 & +0.64 & +0.62 \\
+FDE-CT & $-0.64$ & $-0.47$ & $-0.48$ & $-0.77$ & $-0.23$ \\
+MR-CT & $-0.63$ & $-0.43$ & $-0.49$ & $-0.79$ & $-0.11$ \\
+FDE-BWT & $+0.61$ & $+0.40$ & $+0.29$ & $+0.73$ & $+0.22$ \\
+MR-BWT & $+0.74$ & $+0.64$ & $+0.62$ & $+0.77$ & $+0.53$ \\
+\midrule
+FDE-CT$_{2:N}$ & $-0.37$ & $-0.49$ & $-0.58$ & $-0.20$ & $-0.27$ \\
+MR-CT$_{2:N}$ & $-0.27$ & $-0.47$ & $-0.50$ & $-0.10$ & $-0.20$ \\
 \bottomrule
 \end{tabular*}
 \end{table}

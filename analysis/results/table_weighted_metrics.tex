@@ -1,24 +1,28 @@
 \begin{table}[!t]
 \centering
-\caption{Uniform and contrast-weighted scores. Bold marks the smallest value in each row.}
+\caption{Policy scores (units as in Tables~\ref{tab:main_results_plasticity} and~\ref{tab:main_results_stability}) under the uniform policy, the descriptor-weighted policy, and the uniform policy over the 18 orders that do not start with A, with the bootstrap probability of the smallest score under that policy in parentheses. Bold: smallest score per row.}
 \label{tab:weighted_metrics}
-\setlength{\tabcolsep}{3.5pt}
-\footnotesize
+\setlength{\tabcolsep}{1.5pt}
+\scriptsize
 \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}llrrrr@{}}
 \toprule
-Metric & Weight & Vanilla & DER & SyReM & GSM \\
+Metric & Policy & Vanilla & DER & SyReM & GSM \\
 \midrule
-FDE$_{\rm CT}$ & Uniform & 2.94 & 2.42 & \textbf{2.33} & 2.94 \\
- & $D$-weighted & 3.76 & 3.06 & \textbf{3.01} & 3.76 \\
+FDE-CT & Uniform & $2.94$ (0.00) & $2.42$ (0.29) & {\boldmath$2.33$} (0.71) & $2.94$ (0.00) \\
+ & $D$-weighted & $3.76$ (0.00) & $3.06$ (0.43) & {\boldmath$3.01$} (0.57) & $3.76$ (0.00) \\
+ & Excl.\ A-first & $1.43$ (0.06) & $1.48$ (0.04) & {\boldmath$1.31$} (0.90) & $1.62$ (0.00) \\
 \midrule
-MR$_{\rm CT}$ & Uniform & 18.10 & 17.30 & \textbf{16.04} & 19.58 \\
- & $D$-weighted & 21.87 & 20.12 & \textbf{19.34} & 22.98 \\
+MR-CT & Uniform & $18.10$ (0.00) & $17.30$ (0.05) & {\boldmath$16.04$} (0.94) & $19.58$ (0.00) \\
+ & $D$-weighted & $21.87$ (0.00) & $20.12$ (0.21) & {\boldmath$19.34$} (0.79) & $22.98$ (0.00) \\
+ & Excl.\ A-first & $13.86$ (0.01) & $13.32$ (0.09) & {\boldmath$11.98$} (0.89) & $15.19$ (0.00) \\
 \midrule
-FDE$_{\rm BWT}$ & Uniform & -3.30 & -1.88 & -2.77 & \textbf{-3.33} \\
- & $D$-weighted & -1.46 & -0.43 & -1.23 & \textbf{-1.55} \\
+FDE-BWT & Uniform & $-3.30$ (0.46) & $-1.88$ (0.00) & $-2.77$ (0.03) & {\boldmath$-3.33$} (0.51) \\
+ & $D$-weighted & $-1.46$ (0.36) & $-0.43$ (0.00) & $-1.23$ (0.02) & {\boldmath$-1.55$} (0.61) \\
+ & Excl.\ A-first & $0.57$ (0.00) & $0.69$ (0.00) & {\boldmath$-0.13$} (0.98) & $0.12$ (0.02) \\
 \midrule
-MR$_{\rm BWT}$ & Uniform & -3.89 & -2.10 & \textbf{-13.79} & -8.17 \\
- & $D$-weighted & 5.17 & 6.01 & \textbf{-6.04} & 0.74 \\
+MR-BWT & Uniform & $-3.89$ (0.00) & $-2.10$ (0.00) & {\boldmath$-13.79$} (1.00) & $-8.17$ (0.00) \\
+ & $D$-weighted & $5.17$ (0.00) & $6.01$ (0.00) & {\boldmath$-6.04$} (1.00) & $0.74$ (0.00) \\
+ & Excl.\ A-first & $9.14$ (0.00) & $11.13$ (0.00) & {\boldmath$-1.00$} (1.00) & $5.77$ (0.00) \\
 \bottomrule
 \end{tabular*}
 \end{table}

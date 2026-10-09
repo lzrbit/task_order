@@ -1,17 +1,17 @@
 \begin{table}[!t]
 \centering
-\caption{FDE decomposition by starting task (metres), averaged over 72 training runs per row.}
+\caption{FDE (m) by starting task over 72 runs per row: initial error $R_{1,1}$, CT with and without (CT$_{2:N}$) the first stage, subsequent error $P$, reference $B$, BWT $=P-B$, and final error.}
 \label{tab:bwt_diagnostic}
-\setlength{\tabcolsep}{3.5pt}
+\setlength{\tabcolsep}{2.5pt}
 \footnotesize
-\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrrrrrrr@{}}
 \toprule
-Start & $R_{1,1}$ & $P$ & $B$ & BWT & Final mean \\
+Start & $R_{1,1}$ & CT & CT$_{2:N}$ & $P$ & $B$ & BWT & Final \\
 \midrule
-A & 21.52 & 1.46 & 13.69 & -12.23 & 1.28 \\
-B & 2.77 & 2.34 & 2.46 & -0.12 & 1.52 \\
-C & 1.04 & 1.64 & 1.13 & 0.52 & 1.50 \\
-D & 1.32 & 2.04 & 1.50 & 0.54 & 1.48 \\
+A & $21.52$ & $6.25$ & $1.16$ & $1.46$ & $13.69$ & $-12.23$ & $1.28$ \\
+B & $2.77$ & $1.81$ & $1.48$ & $2.34$ & $2.46$ & $-0.12$ & $1.52$ \\
+C & $1.04$ & $1.12$ & $1.15$ & $1.64$ & $1.13$ & $0.52$ & $1.50$ \\
+D & $1.32$ & $1.45$ & $1.50$ & $2.04$ & $1.50$ & $0.54$ & $1.48$ \\
 \bottomrule
 \end{tabular*}
 \end{table}

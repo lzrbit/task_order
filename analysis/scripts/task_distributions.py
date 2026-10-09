@@ -177,7 +177,7 @@ def draw(summary, preview_dir=None):
     import figure_style as style
 
     style.apply()
-    fig = plt.figure(figsize=(style.SINGLE, 3.35))
+    fig = plt.figure(figsize=(style.SINGLE, 2.6))
     handles = [Line2D([], [], color=style.INK, lw=.8, label='5–95%'),
                Patch(facecolor='#CBD6E0', edgecolor='#74879A', lw=.7, label='25–75%'),
                Line2D([], [], linestyle='none', marker='o', markersize=3.8,

@@ -1,17 +1,17 @@
 \begin{table}[!t]
 \centering
-\caption{Final errors: mean [minimum, maximum] over order-level replicate means. FDE in metres; MR in percent.}
+\caption{Final errors: mean [minimum, maximum] over order-level replicate means, and the bootstrap probability (Prob.) of the smallest uniform mean. FDE in metres; MR in percent. Bold: smallest mean.}
 \label{tab:final_error}
-\setlength{\tabcolsep}{4pt}
+\setlength{\tabcolsep}{3pt}
 \footnotesize
-\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lcc@{}}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lcrcr@{}}
 \toprule
-Algorithm & FDE: mean [min, max] & MR: mean [min, max] \\
+Algorithm & FDE: mean [min, max] & Prob. & MR: mean [min, max] & Prob. \\
 \midrule
-Vanilla & 1.63 [1.18, 2.14] & 17.22 [10.84, 25.67] \\
-DER & 1.63 [1.17, 2.34] & 17.80 [11.47, 29.09] \\
-SyReM & 1.08 [0.87, 1.99] & 9.23 [4.38, 24.69] \\
-GSM & 1.43 [1.03, 2.44] & 15.86 [8.05, 36.25] \\
+Vanilla & 1.63 [1.18, 2.14] & $0.00$ & 17.22 [10.84, 25.67] & $0.00$ \\
+DER & 1.63 [1.17, 2.34] & $0.00$ & 17.80 [11.47, 29.09] & $0.00$ \\
+SyReM & \textbf{1.08 [0.87, 1.99]} & $1.00$ & \textbf{9.23 [4.38, 24.69]} & $1.00$ \\
+GSM & 1.43 [1.03, 2.44] & $0.00$ & 15.86 [8.05, 36.25] & $0.00$ \\
 \bottomrule
 \end{tabular*}
 \end{table}

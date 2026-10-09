@@ -22,10 +22,19 @@
     4
   ],
   "D_formula": "(Step3-Step1)/2",
+  "sign_D_equals_A_in_positions_1_2": true,
+  "spearman_D_positionA": 0.7855844048495726,
   "sample_SD_ddof": 1,
   "initial_stage_nonidentical_blocks": 40,
   "initial_stage_total_blocks": 48,
   "first_task_adjustment": "Pearson correlation of residualized global average ranks after projecting each ranked variable onto four first-task indicator columns.",
+  "positionA_adjustment": "Same residualization with four position-of-A indicator columns.",
+  "bootstrap": {
+    "draws": 5000,
+    "seed": 0,
+    "resampling": "three replicates with replacement within every order-algorithm cell"
+  },
+  "separable_leader_rule": "per-order minimum whose gap to the runner-up exceeds the pooled sample SD of the two algorithms",
   "primary_distance_units": "W1 speed in m/s; W1 acceleration in m/s^2; KL, JS and standardized-speed MMD dimensionless. See inputs/distance_parameters.json.",
   "legacy_distance_sensitivity": "Preserved original directed and symmetric legacy matrices; primary full-array W1 ranks agree with symmetric legacy W1."
 }

@@ -102,10 +102,13 @@ def distances(frame, preview):
                    ('JS divergence', 'Target speed', 'abs_speed__jensen-shannon_divergence'),
                    ('MMD', 'Target speed', 'abs_speed__mmd'),
                    ('Wasserstein-1', 'Acceleration', 'acceleration__wasserstein_distance')]
-    fig = plt.figure(figsize=(st.DOUBLE, 2.00))
+    # Single-column layout: three matrices in the first row, two in the second.
+    fig = plt.figure(figsize=(st.SINGLE, 3.05))
+    slots = [(.045, .60), (.355, .60), (.665, .60), (.045, .13), (.355, .13)]
+    size = (.26, .30)
     for j, (title, subtitle, key) in enumerate(definitions):
-        left = .032 + j * .183
-        ax = fig.add_axes([left, .355, .153, .548])
+        left, bottom = slots[j]
+        ax = fig.add_axes([left, bottom, size[0], size[1]])
         m = matrix_from_frame(frame, key)
         mask = ~np.eye(4, dtype=bool)
         v = m[mask]
@@ -133,24 +136,24 @@ def distances(frame, preview):
         ax.grid(which='minor', color='white', lw=.6)
         ax.tick_params(which='minor', length=0)
         # Each panel identifier and title sit below its matrix, after the ticks.
-        panel_label(fig, left+.0765, .220, chr(97+j), title, 7.2)
-        fig.text(left+.0765, .150, subtitle, fontsize=6.7, ha='center', color=st.MUTED)
-    cax = fig.add_axes([.950, .375, .012, .505])
+        panel_label(fig, left+size[0]/2, bottom-.072, chr(97+j), title, 7.0)
+        fig.text(left+size[0]/2, bottom-.118, subtitle, fontsize=6.4, ha='center', color=st.MUTED)
+    cax = fig.add_axes([.715, .15, .025, .26])
     cb = fig.colorbar(plt.cm.ScalarMappable(norm=Normalize(0, 1), cmap=SEQ_CMAP),
                       cax=cax, ticks=[0, .5, 1])
     cb.outline.set_visible(False)
     cb.solids.set_rasterized(False)
     cb.solids.set_edgecolor('face')
     cb.ax.tick_params(labelsize=6.4, length=2, pad=2)
-    fig.text(.5, .032, 'Within-panel min-max scaling; diagonal omitted',
-             fontsize=6.5, ha='center', color=st.MUTED)
+    fig.text(.715, .445, 'Scaled distance', fontsize=6.4, ha='left', va='bottom',
+             color=st.MUTED)
     save(fig, 'fig_distance_comparison', preview)
 
 
 def extreme_paths(data, paths, preview):
-    fig = plt.figure(figsize=(st.DOUBLE, 3.40))
+    fig = plt.figure(figsize=(st.DOUBLE, 2.45))
     for j, task in enumerate('ABCD'):
-        ax = fig.add_axes([.025+j*.247, .720, .218, .255])
+        ax = fig.add_axes([.025+j*.247, .715, .218, .265])
         ax.set_xlim(0, 1)
         ax.set_ylim(0, 1)
         ax.axis('off')
@@ -188,33 +191,41 @@ def extreme_paths(data, paths, preview):
         ax.margins(x=.16)
         panel_label(fig, left+.0885, .105, chr(98+i), metric, 7.5)
     handles = [Line2D([], [], ls='none', marker='o', color=st.ORANGE, ms=4, alpha=.55,
-                      label='Maximum cumulative shift'),
+                      label='Largest total transition distance L'),
                Line2D([], [], ls='none', marker='s', color=st.BLUE, ms=4, alpha=.55,
-                      label='Minimum cumulative shift')]
+                      label='Smallest total transition distance L')]
     fig.legend(handles=handles, loc='lower center', ncol=2,
                bbox_to_anchor=(.52, .008), fontsize=6.9, columnspacing=2)
     save(fig, 'fig_max_min_paths', preview)
 
 
+POSITION_COLOR = {1: '#C6DBEF', 2: '#6BAED6', 3: '#2171B5', 4: '#08306B'}
+
+
 def correlation(data, corr, preview):
-    """Show per-algorithm Spearman associations while preserving tied D values."""
+    """Show per-algorithm Spearman associations while preserving tied D values.
+
+    Marker fill encodes the presentation position of task A, which determines the
+    sign of D in this task set; marker shape identifies the algorithm.
+    """
     metrics = ['FDE-CT', 'MR-CT', 'FDE-BWT', 'MR-BWT']
-    units = {'FDE-CT': 'FDE-CT (m)', 'MR-CT': 'MR-CT (%)',
-             'FDE-BWT': 'FDE-BWT (m)', 'MR-BWT': 'MR-BWT (pp)'}
-    fig = plt.figure(figsize=(st.DOUBLE, 5.15))
+    units = {'FDE-CT': 'FDE-CT\n(m)', 'MR-CT': 'MR-CT\n(%)',
+             'FDE-BWT': 'FDE-BWT\n(m)', 'MR-BWT': 'MR-BWT\n(pp)'}
+    fig = plt.figure(figsize=(st.DOUBLE, 2.78))
     levels = np.sort(data.D.unique())
+    position = np.array([seq(s).index('A')+1 for s in data.Sequence])
     for col, algorithm in enumerate(st.ALGORITHMS):
         left = .074 + col*.239
-        fig.text(left+.088, .982, st.ALGO_LABEL[algorithm], fontsize=8,
-                 ha='center', va='top', weight='bold', color=st.ALGO_COLOR[algorithm])
+        fig.text(left+.088, .985, st.ALGO_LABEL[algorithm], fontsize=8,
+                 ha='center', va='top', weight='bold', color=st.INK)
         for row, metric in enumerate(metrics):
-            bottom = .787-row*.220
-            ax = fig.add_axes([left, bottom, .176, .154])
+            bottom = .775-row*.207
+            ax = fig.add_axes([left, bottom, .176, .146])
             for d in levels:
                 ax.axvline(d, color='#E6EAED', lw=.4, zorder=0)
             y = data[f'{metric}__{algorithm}'].to_numpy()
-            ax.scatter(data.D, y, c=st.ALGO_COLOR[algorithm],
-                       marker=st.ALGO_MARKER[algorithm], s=12, alpha=.68,
+            ax.scatter(data.D, y, c=[POSITION_COLOR[p] for p in position],
+                       marker=st.ALGO_MARKER[algorithm], s=13, alpha=.9,
                        edgecolor='white', lw=.25, zorder=3)
             rho = corr[(corr.metric == metric) & (corr.algorithm == algorithm)].rho_all
             assert len(rho) == 1
@@ -230,10 +241,18 @@ def correlation(data, corr, preview):
             ax.set_xticks([-1, 0, 1])
             ax.tick_params(labelsize=6.1, pad=2)
             if col == 0:
-                ax.set_ylabel(units[metric], fontsize=7, labelpad=3)
-            fig.text(left+.088, bottom-.049, f'({chr(97+row*4+col)})',
-                     fontsize=7.5, ha='center', weight='normal')
-    fig.text(.52, .022, 'Transition-direction descriptor, D(o) (m/s)', fontsize=7.2, ha='center')
+                ax.set_ylabel(units[metric], fontsize=6.6, labelpad=2, linespacing=1.0)
+            ax.text(.04, .93, f'({chr(97+row*4+col)})', transform=ax.transAxes,
+                    fontsize=7, ha='left', va='top', weight='normal',
+                    bbox={'facecolor': 'white', 'edgecolor': 'none', 'pad': .6, 'alpha': .9})
+    fig.text(.52, .040, 'Transition-direction descriptor, D(o) (m/s)', fontsize=7.2, ha='center')
+    handles = [Line2D([], [], ls='none', marker='o', markerfacecolor=POSITION_COLOR[p],
+                      markeredgecolor='white', markeredgewidth=.25, ms=4.2,
+                      label=str(p)) for p in range(1, 5)]
+    fig.text(.385, .010, 'Position of task A in the order:', fontsize=6.6, ha='right',
+             va='center', color=st.INK)
+    fig.legend(handles=handles, loc='center left', ncol=4, bbox_to_anchor=(.395, .010),
+               fontsize=6.6, handletextpad=.3, columnspacing=1.2, borderaxespad=0)
     save(fig, 'fig_unified_D_main', preview)
 
 
